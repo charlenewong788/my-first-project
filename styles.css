@@ -141,7 +141,8 @@ h3 {
 .profile-card p,
 .timeline-item p,
 .info-card p,
-.framework-card p {
+.framework-card p,
+.research-subtitle {
   color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.7;
@@ -201,7 +202,8 @@ h3 {
 .profile-card,
 .contact-panel,
 .timeline-item,
-.info-card {
+.info-card,
+.framework-card {
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(217, 222, 216, 0.9);
   border-radius: 8px;
@@ -249,18 +251,21 @@ h3 {
 
 .timeline,
 .cards-grid,
-.contact-panel {
+.contact-panel,
+.research-content {
   display: grid;
   gap: 18px;
 }
 
 .timeline-item,
 .info-card,
-.contact-panel {
+.contact-panel,
+.framework-card {
   padding: 24px;
 }
 
-.timeline-item span {
+.timeline-item span,
+.framework-card span {
   display: block;
   margin-bottom: 10px;
   color: var(--rose);
@@ -269,89 +274,29 @@ h3 {
 }
 
 .timeline-item p,
-.info-card p {
+.info-card p,
+.framework-card p,
+.research-subtitle {
   margin: 0;
 }
 
-.cards-grid {
+.cards-grid,
+.framework-grid {
+  display: grid;
+  gap: 18px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.research-section {
-  padding: 88px 0 104px;
-  border-top: 1px solid var(--line);
-}
-
-.research-panel {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(30px, 5vw, 52px);
-  background: rgba(255, 253, 248, 0.82);
-  border: 1px solid rgba(217, 222, 216, 0.92);
-  border-radius: 8px;
-}
-
-.research-panel::before {
-  content: "";
-  position: absolute;
-  inset: 24px;
-  border: 1px solid rgba(23, 54, 37, 0.1);
-  border-radius: 8px;
-  pointer-events: none;
-}
-
-.research-panel::after {
-  content: "";
-  position: absolute;
-  right: -16px;
-  top: 108px;
-  width: 68px;
-  height: 68px;
-  border-radius: 68px 68px 0 0;
-  background: rgba(160, 158, 139, 0.46);
-}
-
-.research-panel h2,
-.research-subtitle,
-.framework-grid {
-  position: relative;
-  z-index: 1;
-}
-
-.research-panel h2,
 .research-subtitle {
-  text-align: center;
-}
-
-.research-panel h2 {
-  color: var(--ink-green);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.45rem);
-  font-weight: 800;
-  line-height: 1.08;
-}
-
-.research-subtitle {
-  margin: 10px 0 34px;
-  color: var(--ink-green);
-  font-size: clamp(1rem, 1.7vw, 1.18rem);
-}
-
-.framework-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  color: var(--accent-dark);
+  font-weight: 700;
 }
 
 .framework-card {
-  min-height: 260px;
+  min-height: 240px;
   display: flex;
   flex-direction: column;
-  padding: 22px 20px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(134, 161, 181, 0.55);
-  border-top: 6px solid var(--blue-ring);
-  border-radius: 8px;
+  border-top: 4px solid var(--blue-ring);
 }
 
 .framework-card:nth-child(2) {
@@ -366,40 +311,23 @@ h3 {
   border-top-color: #a9bac7;
 }
 
-.framework-card span {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  background: rgba(134, 161, 181, 0.16);
-  color: var(--blue-ring-dark);
-  font-size: 0.84rem;
-  font-weight: 850;
-}
-
 .framework-card h3 {
-  min-height: 2.6em;
-  margin: 0 0 16px;
-  color: var(--ink-green);
+  margin: 0 0 12px;
+  color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.18rem;
-  line-height: 1.25;
+  font-size: 1.22rem;
+  line-height: 1.2;
 }
 
 .framework-card h4 {
-  margin: 0 0 12px;
-  color: var(--ink-green);
+  margin: 0 0 18px;
+  color: var(--text);
   font-size: 1.02rem;
-  line-height: 1.32;
+  line-height: 1.35;
 }
 
 .framework-card p {
-  margin: auto 0 0;
-  color: var(--ink-green);
-  font-size: 0.98rem;
-  line-height: 1.45;
+  margin-top: auto;
 }
 
 .copy-button {
@@ -421,12 +349,6 @@ h3 {
 
 .footer p {
   margin: 0;
-}
-
-@media (max-width: 980px) {
-  .framework-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 860px) {
@@ -451,7 +373,8 @@ h3 {
     position: static;
   }
 
-  .cards-grid {
+  .cards-grid,
+  .framework-grid {
     grid-template-columns: 1fr;
   }
 
@@ -462,28 +385,5 @@ h3 {
   .nav-links {
     gap: 12px;
     font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .research-panel {
-    padding: 26px 18px 32px;
-  }
-
-  .research-panel::before,
-  .research-panel::after {
-    display: none;
-  }
-
-  .framework-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .framework-card {
-    min-height: auto;
-  }
-
-  .framework-card h3 {
-    min-height: auto;
   }
 }
