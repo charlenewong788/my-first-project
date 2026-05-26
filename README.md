@@ -1,1 +1,1 @@
-# my-first-codex-project
+# my-first-project
