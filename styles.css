@@ -10,7 +10,7 @@
   --gold: #c98a2e;
   --rose: #b45364;
   --ink-green: #173625;
-  --blue-ring: #7994a9;
+  --blue-ring: #86a1b5;
   --blue-ring-dark: #3f5d77;
   --shadow: 0 24px 70px rgba(20, 28, 35, 0.12);
 }
@@ -285,24 +285,22 @@ h3 {
 .research-panel {
   position: relative;
   overflow: hidden;
-  padding: clamp(28px, 5vw, 48px);
-  background: rgba(255, 253, 248, 0.72);
-  border: 1px solid rgba(217, 222, 216, 0.92);
+  padding: clamp(28px, 4vw, 44px) clamp(18px, 3vw, 32px) 42px;
+  background: rgba(255, 253, 248, 0.78);
   border-radius: 8px;
 }
 
 .research-panel::after {
   content: "";
   position: absolute;
-  right: 36px;
-  top: 46px;
-  width: 54px;
-  height: 54px;
-  border-radius: 54px 54px 0 0;
-  background: rgba(160, 158, 139, 0.74);
+  right: -10px;
+  top: 108px;
+  width: 62px;
+  height: 62px;
+  border-radius: 62px 62px 0 0;
+  background: rgba(160, 158, 139, 0.68);
 }
 
-.research-panel > .eyebrow,
 .research-panel h2,
 .research-subtitle {
   position: relative;
@@ -313,14 +311,15 @@ h3 {
 .research-panel h2 {
   color: var(--ink-green);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.8rem, 4vw, 2.55rem);
-  line-height: 1.1;
+  font-size: clamp(1.8rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  line-height: 1.08;
 }
 
 .research-subtitle {
-  margin: 12px 0 38px;
+  margin: 10px 0 42px;
   color: var(--ink-green);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
 }
 
 .research-flow {
@@ -328,7 +327,7 @@ h3 {
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 34px);
+  gap: clamp(12px, 2.6vw, 28px);
   align-items: start;
 }
 
@@ -338,9 +337,10 @@ h3 {
 }
 
 .focus-ring {
-  width: min(100%, 142px);
+  position: relative;
+  width: min(100%, 154px);
   aspect-ratio: 1;
-  margin: 0 auto 14px;
+  margin: 0 auto 20px;
   display: grid;
   place-items: center;
   border: 7px solid var(--blue-ring);
@@ -348,7 +348,16 @@ h3 {
   color: var(--ink-green);
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 800;
-  line-height: 1.22;
+  line-height: 1.25;
+}
+
+.focus-ring::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.58;
 }
 
 .focus-item:nth-child(2) .focus-ring {
@@ -356,44 +365,68 @@ h3 {
 }
 
 .focus-ring span {
-  width: 72%;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border: 3px solid currentColor;
-  border-radius: 50%;
-  padding: 10px;
-  font-size: 0.98rem;
+  position: relative;
+  z-index: 1;
+  max-width: 78%;
+  font-size: clamp(0.9rem, 1.6vw, 1.02rem);
 }
 
 .focus-arrow {
-  width: 46px;
-  height: 34px;
-  margin: 0 auto 24px;
-  border-left: 7px solid var(--blue-ring);
-  border-bottom: 7px solid var(--blue-ring);
-  transform: rotate(-45deg);
-  border-radius: 0 0 0 4px;
+  position: relative;
+  width: 48px;
+  height: 52px;
+  margin: -4px auto 24px;
 }
 
-.focus-item:nth-child(2) .focus-arrow {
+.focus-arrow::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 7px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--blue-ring);
+  transform: translateX(-50%);
+}
+
+.focus-arrow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 28px;
+  height: 28px;
+  border-right: 7px solid var(--blue-ring);
+  border-bottom: 7px solid var(--blue-ring);
+  border-radius: 0 0 5px 0;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.focus-item:nth-child(2) .focus-arrow::before {
+  background: var(--blue-ring-dark);
+}
+
+.focus-item:nth-child(2) .focus-arrow::after {
   border-color: var(--blue-ring-dark);
 }
 
 .focus-item h3 {
   max-width: 220px;
-  min-height: 2.7em;
-  margin: 0 auto 8px;
+  min-height: 4em;
+  margin: 0 auto 6px;
   color: var(--ink-green);
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
-  line-height: 1.28;
+  font-size: clamp(0.98rem, 1.8vw, 1.14rem);
+  font-weight: 850;
+  line-height: 1.25;
 }
 
 .focus-item p {
   margin: 0 auto;
-  max-width: 220px;
+  max-width: 210px;
   color: var(--ink-green);
-  line-height: 1.45;
+  font-size: clamp(0.95rem, 1.6vw, 1.02rem);
+  line-height: 1.38;
 }
 
 .copy-button {
@@ -474,6 +507,10 @@ h3 {
   }
 
   .focus-ring {
-    width: 132px;
+    width: 140px;
+  }
+
+  .focus-item h3 {
+    min-height: auto;
   }
 }
